@@ -1,0 +1,13 @@
+.container {
+  padding: 2rem;
+  text-align: center;
+}
+.button {
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+  background-color: purple;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
