@@ -14,19 +14,18 @@ export async function POST(req: NextRequest) {
     body
   };
 
-  const filePath = path.join(process.cwd(), 'src/data/payments.json');
-  let payments = [];
+  const filePath = path.join(process.cwd(), 'src/data/payment_logs.json');
+  let logs = [];
 
   try {
-    const existing = fs.readFileSync(filePath, 'utf8');
-    payments = JSON.parse(existing);
+    const content = fs.readFileSync(filePath, 'utf8');
+    logs = JSON.parse(content);
   } catch {
-    payments = [];
+    logs = [];
   }
 
-  payments.push(log);
-
-  fs.writeFileSync(filePath, JSON.stringify(payments, null, 2));
+  logs.push(log);
+  fs.writeFileSync(filePath, JSON.stringify(logs, null, 2));
 
   return NextResponse.json({ received: true });
 }

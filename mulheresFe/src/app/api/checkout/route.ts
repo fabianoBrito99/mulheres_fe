@@ -13,11 +13,12 @@ export async function POST() {
         }
       ],
       back_urls: {
-        success: 'https://www.google.com',
-        failure: 'https://www.google.com',
-        pending: 'https://www.google.com'
+        success: 'https://www.seuprojeto.com.br/sucesso',
+        failure: 'https://www.seuprojeto.com.br/erro',
+        pending: 'https://www.seuprojeto.com.br/pendente'
       },
       auto_return: 'approved',
+      notification_url: 'https://www.seuprojeto.com.br/api/webhook',
       payment_methods: {
         excluded_payment_types: [
           { id: 'ticket' },
@@ -34,7 +35,7 @@ export async function POST() {
       }
     });
 
-    return NextResponse.json({ init_point: response.data.sandbox_init_point || response.data.init_point });
+    return NextResponse.json({ init_point: response.data.init_point });
   } catch (error: any) {
     console.error('Erro ao criar link Mercado Pago:', error.response?.data || error.message);
     return NextResponse.json({ error: 'Erro ao criar link de pagamento' }, { status: 500 });

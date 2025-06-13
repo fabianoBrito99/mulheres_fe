@@ -1,7 +1,7 @@
 
 export default function Page() {
   return (
-    <div style={ padding: '2rem' }>
+    <div>
       <h1>Pagamento falhou</h1>
     </div>
   );
